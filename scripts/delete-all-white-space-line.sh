@@ -33,11 +33,15 @@ function recursion {
 			# 如果后缀名是 .md 则执行添加语句
 			if [[ "${one##*.}"x = "md"x ]]; then
 
-				sed -i -e "s/>\ \-\-\-\-\-/\n/g" ${filename}.md
+				# line_number=`sed -n -e '/^##\ 正文/=' ${filename}.md | head -1`
 
-				sed -i -e "s/>\ />\ 　　/g" ${filename}.md
+				# offset=`expr ${line_number} + 1`
 
-				# sed -i -e "s/\　\　/\n\　\　/g" ${filename}.md
+				# 删除空白行
+				sed -i -e "/^[\　]\s*\$/d" ${filename}.md
+
+				# 替换 \n 为 windows 风格 \r\n
+				# sed -i -e "${offset},\$s/^/\r\n&/" ${filename}.md
 
 			fi
 
