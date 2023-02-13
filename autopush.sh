@@ -6,4 +6,4 @@ git add .
 git commit -m "$1"
 
 # 可以将分支换成 $2 变量用于指定分支
-git push origin master
+git push
