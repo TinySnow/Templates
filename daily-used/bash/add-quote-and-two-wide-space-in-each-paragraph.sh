@@ -33,9 +33,11 @@ function recursion {
 			# 如果后缀名是 .md 则执行添加语句
 			if [[ "${one##*.}"x = "md"x ]]; then
 
-				sed -i -e "s/>\ \-\-\-\-\-/\n/g" ${filename}.md
+				sed -i -e "s/^/>\ /g" ${filename}.md
 
-				sed -i -e "s/>\ />\ 　　/g" ${filename}.md
+				sed -i -e "s/^> \-\-\-$/\-\-\-/g" ${filename}.md
+
+				# sed -i -e "s/>\ />\ 　　/g" ${filename}.md
 
 				# sed -i -e "s/\　\　/\n\　\　/g" ${filename}.md
 
